@@ -1,0 +1,626 @@
+//scan the 10 elements and store in an array
+
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[10];
+    for(int i=0;i<10;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("The elements in an array\n");
+    for(int i=0;i<10;i++)
+    {
+        printf("%d",arr[i]);
+    }
+}
+output:
+0 1 2 3 4 5 6 7 8 9
+The elements in an array
+0123456789
+*/
+
+//Array sum
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[10],sum=0;
+    for(int i=0;i<10;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("The elements in an array\n");
+    for(int i=0;i<10;i++)
+    {
+        printf("%d",arr[i]);
+        sum=sum+arr[i];
+    }
+    printf("\n");
+    printf("%d",sum);
+}
+output:
+1 2 3 4 5 6 7 8 9 10
+The elements in an array
+12345678910
+55
+*/
+
+//copy of array
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N],arr2[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=0;i<N;i++)
+    {
+        arr2[i]=arr[i];
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr2[i]);
+    }
+}
+
+output:
+5
+1 2 3 4 5
+12345
+    */
+
+//reverse of elements in an array
+
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Array elements are:");
+    for(int i=0;i<N;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    printf("reverse of elements:");
+    for(int i=N-1;i>=0;i--)
+    {
+        printf("%d ",arr[i]);
+    }
+    
+}
+
+output:
+5
+1 2 3 4 5
+Array elements are:1 2 3 4 5 
+reverse of elements:5 4 3 2 1 
+
+*/
+
+//reverse an array using swapping
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Array elements are:");
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    printf("\n");
+    for(int i=0;i<N;i++)
+    {
+        for(int j=N-1;j>=0;j--)
+        {
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    
+}
+output:
+5
+1 2 3 4 5
+Array elements are:12345
+45231
+*/
+
+//max element in an array
+/*
+#include<stdio.h>
+#include<limits.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    int max=INT_MIN;
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+        if(arr[i]>max)
+        {
+            max=arr[i];
+        }
+        
+    }
+    printf("\n");
+    printf("%d",max);
+}
+output:
+5
+1 2 3 4 5
+12345
+5
+*/
+
+//inserting elements in array
+// 1 2 3 4 5 6......
+// 0 1 2 3 4 5--indexes
+//inserting element at index 2 at 4
+// 0 1 2 3 4 5 6
+// 1 2 4 3 4 5 6...
+// arr[j+1]=arr[j]
+/*
+#include<stdio.h>
+int main()
+{
+    int N,X,I,E;
+    scanf("%d %d %d %d",&N,&X,&I,&E);
+    int arr[N];
+    for(int i=0;i<X;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Elements in array are:");
+    for(int i=0;i<X;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    for(int i=X;i>=I;i--)
+    {
+        arr[i+1]=arr[i];
+    }
+    arr[I]=E;
+    printf("The new elements in an array are:");
+    for(int i=0;i<N;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+}
+output:
+7 5 2 10
+1 2 3 4 5
+Elements in array are:1 2 3 4 5 
+The new elements in an array are:1 2 10 3 4 5 0 
+*/
+
+
+// deletion of element in array
+//inserting elements in array
+// 1 2 3 4 5 6......
+// 0 1 2 3 4 5--indexes
+//deleting element at index 2 
+// 0 1 2 3 4 5 6
+// 1 2 4 5 6...
+// arr[2]=arr[3]
+// arr[3]=arr[4]
+// arr[4]=arr[5]
+// arr[i-1]=arr[i];
+/*
+#include<stdio.h>
+int main()
+{
+    int N,X,I;
+    scanf("%d %d %d",&N,&X,&I);
+    int arr[N];
+    //storing
+    for(int i=0;i<X;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("elements in array are:");
+    for(int i=I+1;i<=X;i++)
+    {
+        arr[i-1]=arr[i];
+    }
+    printf("\n");
+    for(int i=0;i<N;i++)
+    {
+       printf("%d ",arr[i]);
+    }
+}
+*/
+
+//frequency of an element in an array
+// 1 2 3 4 5 6 5 6
+//x=5 prints 2
+/*
+#include<stdio.h>
+int main()
+{
+    int N,E;
+    scanf("%d %d",&N,&E);
+    int arr[N],count=0;
+    for(int i=0;i<N;i++)
+    {
+      scanf("%d",&arr[i]);  
+      if(E==arr[i])
+      {
+          count=count+1;
+      }
+    }
+    printf("%d",count);
+}
+output:
+5 1
+1 2 3 1 1
+3
+*/
+
+// frequency of each and every element in array
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=0;i<N;i++)
+    {
+        int b=arr[i];
+        int count=0;
+        for(int j=0;j<N;j++)
+        {
+            if(b==arr[j])
+            {
+                count=count+1;
+            }
+        }
+        printf("%d %d\n",b,count);
+    }
+}
+
+output:
+5
+>>>1 2 3 1 2
+1 2
+2 2
+3 1
+1 2
+2 2
+*/
+
+//pairs of sum in an array =x given element ;
+
+//{1,2,3,4,7,8} x=3
+//{1,2},{1+2}=3==x;
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[8]={1,2,4,5,2,3,1,5};
+    int x=6;
+    for(int i=0;i<8;i++)
+    {
+        for(int j=i+1;j<8;j++)
+        {
+            if(arr[i]+arr[j]==x)
+            {
+                printf("{%d,%d}",arr[i],arr[j]);
+            }
+        }
+    }
+}
+output:
+{1,5}{1,5}{2,4}{4,2}{5,1}{1,5}
+*/
+
+//triplets sum
+
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[8]={1,2,4,5,2,3,1,5};
+    int x=6;
+    for(int i=0;i<8;i++)
+    {
+        for(int j=i+1;j<8;j++)
+        {
+            for(int k=j+1;k<8;k++)
+            {
+            if(arr[i]+arr[j]+arr[k]==x)
+            {
+                printf("{%d,%d,%d}",arr[i],arr[j],arr[k]);
+            }
+            }
+        }
+    }
+}
+output:
+{1,2,3}{1,4,1}{1,2,3}{2,3,1}{2,3,1}
+*/
+
+
+//selection sort
+/*
+#include<stdio.h>
+int main()
+{
+   int arr[5];
+   for(int i=0;i<5;i++)
+   {
+       scanf("%d",&arr[i]);
+   }
+   for(int i=0;i<5;i++)
+   {
+       int index=i;
+       int min=arr[index];
+       for(int j=i;j<5;j++)
+       {
+          if(arr[j]<=min)
+          {
+              min=arr[j];
+              index=j;
+          }
+       }
+       int temp=arr[i];
+       arr[i]=arr[index];
+       arr[index]=temp;       
+   }
+    for(int i=0;i<5;i++)
+   {
+       printf("%d",arr[i]);
+   }
+    
+}
+output:
+2 3 1 2 4
+12234
+    */
+
+
+//selection sort for maxmium elements
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=0;i<N;i++)
+    {
+        int index=i;
+        int max=arr[i];
+        for(int j=i;j<N;j++)
+        {
+            if(arr[j]>=max)
+            {
+                max=arr[j];
+                index=j;
+            }
+        }
+        int temp=arr[i];
+        arr[i]=arr[index];
+        arr[index]=temp;
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    
+}
+output:
+5
+1 2 4 5 6
+6 5 4 2 1
+*/
+
+//bubble sort
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=0;i<N-1;i++)
+    {
+        for(int j=0;j<N-1;j++)
+        {
+            if(arr[j]>arr[j+1])      
+            {
+                int temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+}
+
+output:
+5
+2 3 1 4 1
+1 1 2 3 4 
+    */
+
+/*
+//insertion sort
+//
+//1 2 3 4 6 5
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=1;i<N;i++)
+    {
+        int j=i;
+        while(arr[j]<arr[j-1] && j>0)
+        {
+                int temp=arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+            j--;
+        }
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+}
+output:
+5
+2 3 1 4 1
+11234
+ */
+
+//insertion sort
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=1;i<N;i++)
+    {
+        int j=i;
+        while(j>0)
+        {
+            if(arr[j-1]>=arr[j])
+            {
+                int temp=arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+            }
+            j=j-1;
+        }
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+}
+*/
+//selection sort
+/*
+
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int i=0;i<N;i++)
+    {
+        int min=arr[i];
+        int index=i;
+        for(int j=i;j<N;j++)
+        {
+            if(arr[j]<min)
+            {
+              min=arr[j];
+              index=j;
+            }
+            
+        }
+        int temp=arr[i];
+        arr[i]=arr[index];
+        arr[index]=temp;
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
