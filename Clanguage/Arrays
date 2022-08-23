@@ -596,6 +596,50 @@ int main()
 }
 */
 
+//selection sort using while loop
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    //1 4 5 2 6
+    //index=0
+    int i=0;
+    while(i<N)
+    {
+        int index=i;
+        int min=arr[i];
+        int j=i;
+        while(j<N)
+        {
+            if(arr[j]>=min)
+            {
+                min=arr[j];
+                index=j;
+            }
+        j=j+1;
+        }
+        int temp=arr[i];
+        arr[i]=arr[index];
+        arr[index]=temp;
+    i=i+1;
+    }
+    
+    //printing
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    
+}
+*/
+
 
 
 
