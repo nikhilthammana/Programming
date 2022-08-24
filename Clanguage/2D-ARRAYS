@@ -1,0 +1,783 @@
+//2D array
+/*
+#include<stdio.h>
+int main()
+{
+    int R,C;
+    scanf("%d %d",&R,&C);
+    int arr[R][C];
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+output:
+3 3
+>>>1 1 1
+>>>2 1 2 
+>>>3 2 1
+1 1 1 
+2 1 2 
+3 2 1 
+    */
+/*
+#include<stdio.h>
+int main()
+{
+   int R,C,sum=0;
+   scanf("%d %d",&R,&C);
+   int arr[R][C];
+   
+   for(int i=0;i<R;i++)
+   {
+    for(int j=0;j<C;j++)
+    {
+        scanf("%d",&arr[i][j]);
+    }
+   }
+   for(int i=0;i<R;i++)
+   {
+    for(int j=0;j<C;j++)
+    {
+        sum=sum+arr[i][j];
+        printf("%d",arr[i][j]);
+    }
+    printf("\n");
+   }
+   printf("%d",sum);
+
+}
+*/
+
+//ADDITION OF TWO MATRICES
+/*
+#include<stdio.h>
+int main()
+{
+    int arr1[2][2];
+    int arr2[2][2];
+    int arr3[2][2];
+
+    //first array  to store elements
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<2;j++)
+        {
+            scanf("%d",&arr1[i][j]);
+        }
+    }
+    //second array  to store elements
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<2;j++)
+        {
+            scanf("%d",&arr2[i][j]);
+        }
+    }
+
+    //third array which store add of two arrays
+     
+     for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<2;j++)
+        {
+            arr3[i][j]=arr1[i][j]+arr2[i][j];
+        }
+    }
+
+    //printing addition array
+    
+    
+     for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<2;j++)
+        {
+            printf("%d ",arr3[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+output:
+1 0
+0 1
+2 0
+0 2
+//printing
+3 0
+0 3
+*/
+
+//substraction OF TWO MATRICES
+/*
+#include<stdio.h>
+int main()
+{
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int arr1[r][c];
+    int arr2[r][c];
+    int arr3[r][c];
+
+    //first array  to store elements
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr1[i][j]);
+        }
+    }
+    //second array  to store elements
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr2[i][j]);
+        }
+    }
+
+    //third array which store add of two arrays
+     
+     for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            arr3[i][j]=arr1[i][j]-arr2[i][j];
+        }
+    }
+
+    //printing subsstraction array
+    
+    printf("printing Array of subsstraction \n");
+    
+     for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("%d ",arr3[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+output:
+2 2
+1 0
+9 8
+0 0
+1 1
+printing Array of subsstraction 
+1 0
+8 7
+*/
+
+//sum in right diagonal matrix
+//method 1;
+/*
+#include<stdio.h>
+int main()
+{
+    int r,c,sum=0;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+            if(i==j)
+            {
+                sum=sum+arr[i][j];
+            }
+        }
+    }
+    
+    printf("%d",sum);
+}
+output:
+2 2
+9 8
+1 4
+13
+*/
+//method 2;
+/*
+#include<stdio.h>
+int main()
+{
+    int r,c,sum=0;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    int i=0,j=0;
+    while(i<r && j<r)
+    {
+        sum=sum+arr[i][j];
+        i=i+1;
+        j=j+1;
+    }
+    printf("%d",sum);
+}
+output:
+2 2
+9 8
+7 5
+14
+*/
+
+//left diagonal matrix sum
+/*
+#include<stdio.h>
+int main()
+{
+    int r,c,sum=0;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    int i=0,j=c-1;
+    while(i<r && j>=0)
+    {
+        sum=sum+arr[i][j];
+        i=i+1;
+        j=j-1;
+    }
+    printf("%d",sum);
+}
+output:
+2 2
+5 5
+5 4
+10
+*/
+//sum of all elements in right and left diagonal
+/*
+#include<stdio.h>
+int main()
+{
+    int n,sum=0;
+    scanf("%d",&n);
+    int arr[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+        scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(i==j)
+            {
+                sum=sum+arr[i][j];
+            }
+        }
+    }
+    if(n%2!=0)
+    {
+        int c=n/2;
+        arr[c][c]=0;
+    }
+    int i=0,j=n-1;
+    while(i<n)
+    {
+         sum=sum+arr[i][j];
+         i=i+1;
+         j=j-1;
+    }
+    printf("%d",sum);
+}
+
+output1:
+3
+1 0 1
+2 5 6
+2 3 4
+13
+output2:
+4
+1 2 3 4
+2 3 3 3
+0 0 0 0
+1 2 2 1
+13
+*/
+
+//upper and lower triangle matrix
+/*
+#include<stdio.h>
+int main()
+{
+    int R,C;
+    scanf("%d %d",&R,&C);
+    int arr[R][C];
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+        scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<C;i++)
+    {
+        for(int j=0;j<=i;j++)
+        {
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+output:
+3 3
+>>>1 2 3
+>>>2 3 1
+>>>1 2 3
+1 
+2 3 
+1 2 3 
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int R,C;
+    scanf("%d %d",&R,&C);
+    int arr[R][C];
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+        scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<C;i++)
+    {
+        for(int k=0;k<C-i;k++)
+        {
+            printf("_ ");
+        }
+        for(int j=C-i-1;j<C;j++)
+        {
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+output:
+>>>3 3
+>>>1 2 3
+>>>2 3 1
+>>>1 1 1
+
+_ _ _ 3 
+_ _ 3 1 
+_ 1 1 1 
+*/
+/*
+#include<stdio.h>
+int main()
+{
+    int R,C;
+    scanf("%d %d",&R,&C);
+    int arr[R][C];
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+        scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<C;i++)
+    {
+        for(int k=0;k<i;k++)
+        {
+            printf("_");
+        }
+        for(int j=i;j<n;j++)
+        {
+            printf("%d",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+output:
+>>>3 3
+>>>1 2 3
+>>>3 2 1
+>>>1 2 3
+123
+_21
+__3
+*/
+
+
+/*
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n-i-1;j++)
+        {
+           printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+>>>3
+>>>1 2 3
+>>>2 3 1
+>>>2 3 4
+1 2 
+2 
+*/
+
+
+
+//addition of upper traingle matrix
+/*
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=n-1;j>=i+1;j--)
+        {
+           sum=sum+arr[i][j];
+        }
+    }
+    printf("%d",sum);
+}
+output:
+3
+>>>1 2 3
+>>>4 5 6
+>>>7 8 9
+11
+*/
+
+//intailsing two dimensional array
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[3][4]={{1,2,3,4},{2,3,5,3},{20,8,9,7}}; //1st method
+    int arr2[3][4]={{1,2,3,4},{2,3,5,3},{20,8,9,7}}; //2nd method
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            printf("%d ",arr2[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+output:
+1 2 3 4 
+2 3 5 3 
+20 8 9 7 
+
+1 2 3 4 
+2 3 5 3 
+20 8 9 7 
+*/
+
+//Transpose Matrix 
+/*
+#include<stdio.h>
+int main()
+{
+   int N;
+    scanf("%d",&N);
+  int arr[N][N];
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+        scanf("%d",&arr[i][j]);
+        }
+    }
+    //swapping using upper traingular matrix with corresponding elements in lower triangular matrix
+    for(int i=0;i<N;i++)
+    {
+        for(int j=i;j<N;j++)
+        {
+          int temp=arr[i][j];
+          arr[i][j]=arr[j][i];
+          arr[j][i]=temp;
+        }
+    }
+    printf("output:\n");
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+         printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+3
+>>>1 2 3
+>>>4 5 6
+>>>7 8 9
+output:
+1 4 7 
+2 5 8 
+3 6 9 
+*/
+
+//second method
+//not an optimal solution
+/*
+#include<stdio.h>
+int main()
+{
+   int N;
+    scanf("%d",&N);
+  int arr[N][N];
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+        scanf("%d",&arr[i][j]);
+        }
+    }
+    //assigning to new mattrix
+    int mat2[N][N];
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+          mat2[j][i]=arr[i][j];
+        }
+    }
+    //we can print directly mat2 other wise assign again to old matrix
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+          arr[i][j]=mat2[i][j];
+        }
+    }
+    
+    
+    printf("output:\n");
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+         printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+output:
+>>>3
+>>>1 2 3
+>>>4 5 6
+>>>7 8 9
+output:
+1 4 7 
+2 5 8 
+3 6 9 
+    */
+
+//multiplcation of two matrices
+/*
+#include<stdio.h>
+int main()
+{
+    int n1,m1,n2,m2;
+    scanf("%d %d %d %d",&n1,&m1,&n2,&m2);
+    int arr1[n1][m1];
+    for(int i=0;i<n1;i++)
+    {
+        for(int j=0;j<m1;j++)
+        {
+            scanf("%d",&arr1[i][j]);
+        }
+    }
+    int arr2[n2][m2];
+    printf("enter second matrix\n");
+    for(int i=0;i<n2;i++)
+    {
+        for(int j=0;j<m2;j++)
+        {
+            scanf("%d",&arr2[i][j]);
+        }
+    }
+    //printing mutlplication
+    int arr3[n1][m2];
+    for(int i=0;i<n1;i++)
+    {
+        for(int j=0;j<m2;j++)
+        {
+            arr3[i][j]=0;
+            for(int k=0;k<n2;k++)
+            {
+                arr3[i][j]+=arr1[i][k]*arr2[k][j];
+            }
+        }
+    }
+    for(int i=0;i<n1;i++)
+    {
+        for(int j=0;j<m2;j++)
+        {
+            printf("%d ",arr3[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+    
+}
+output:
+>>>3 2 2 3
+>>>1 1
+>>>2 2
+>>>3 3
+enter second matrix
+>>>1 1 1
+>>>2 2 2
+3 3 3 
+6 6 6 
+9 9 9 
+*/
+
+//selection sort
+/*
+#include<stdio.h>
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    int arr[N];
+    for(int i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    //1 4 5 2 6
+    //1 2 4 5 6
+    int i=1;
+    while(i<N)
+    {
+        int j=i;
+        while(j>0)
+        {
+            if(arr[j]<arr[j-1])
+            {
+              int temp=arr[j];
+              arr[j]=arr[j-1];
+              arr[j-1]=temp;
+            }
+            j=j-1;
+        }
+
+        i=i+1;
+    }
+    //printing
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    
+}
+*/
+//multi dimensional array
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[3][2][1];
+    for(int i=0;i<3;i++)
+    {
+       for(int j=0;j<2;j++)
+       {
+           for(int k=0;k<1;k++)
+           {
+               scanf("%d",&arr[i][j][k]);
+           }
+       }
+    }
+    for(int i=0;i<3;i++)
+    {
+       for(int j=0;j<2;j++)
+       {
+           for(int k=0;k<1;k++)
+           {
+               printf("%d",arr[i][j][k]);
+           }
+       }
+    printf("\n");
+    }
+}
+
+*/
+//another way of represnting
+//b[3][2][1]={{{1},{2}},{{3},{1}},{{1},{4}}}
+
+/*
+
+
+
+
