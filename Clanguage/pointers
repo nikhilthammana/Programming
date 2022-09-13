@@ -1,0 +1,452 @@
+// #include<stdio.h>
+// int main()
+// {
+//     int a=9;
+//     long long b=&a;
+//     printf("%lld %lld",b,&a);
+// }
+// o/p:
+// 140736718380244 140736718380244
+
+//two varaible address
+/*
+#include<stdio.h>
+int main()
+{
+    int a=9;
+    int b=6;
+    printf("%lld\n%lld",&a,&b);
+    return 0;
+}
+output:
+140732274845104
+140732274845108
+*/
+
+//pointer
+/*
+#include<stdio.h>
+int main()
+{
+    int a=9;
+    int* b=&a;//to store address in pointer a varaible
+    printf("%lld %lld",b,&a);
+    return 0;
+}
+output:
+140737218760836 140737218760836
+*/
+
+//derefferencing the pointer to get the variable located in that memory address
+/*
+#include<stdio.h>
+int main()
+{
+    int a=6;
+    int* b=&a;
+    printf("%d",*b);
+}
+output:
+6
+*/
+
+//data manuplation using pointer
+/*
+#include<stdio.h>
+int main()
+{
+    int x=9;
+    int* y=&x;
+    *y=10;//manuplated the value at dereference varaible *y==value of x(9)==10
+    printf("%d",x);
+}
+output:
+10
+*/
+/*
+#include<stdio.h>
+int main()
+{
+    int x=9;
+    int* a=&x;
+    int* b=&x;
+    int* c=&x;
+    printf("Before defereferencing %d %d %d %d\n",x,*a,*b,*c);
+    *c=11;
+    printf("after defereferencing %d %d %d %d \n",x,*a,*b,*c);
+}
+ouput:
+Before defereferencing 9 9 9 9
+after defereferencing 11 11 11 11 
+*/
+
+//predict the ouput:
+/*
+#include<stdio.h>
+int main()
+{
+    int x=5,y=6;
+    int* z=&x;
+    printf("%d %d %d\n",x,y,*z);
+}
+output:
+5 6 5
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int x=5,y=6;
+    int* z=&x;
+    printf("%d %d %d %lld\n",x,y,*z,z);
+    *z=0;
+    printf("%d %d %d %lld\n",x,y,*z,z);
+}
+output:
+5 6 5 140720430900676
+0 6 0 140720430900676
+*/
+//in above program values changed but not address of memory location(z)
+
+/*
+#include<stdio.h>
+int main()
+{
+    int x=5,y=6;
+    int* z=&x;
+    printf("%d %d %d %lld\n",x,y,*z,z);
+    *z=0;
+    printf("%d %d %d %lld\n",x,y,*z,z);
+    z=&y;
+    *z=10;
+    printf("%d %d %d %lld\n",x,y,*z,z);
+}
+output:
+5 6 5 140722463217232
+0 6 0 140722463217232
+0 10 10 140722463217236
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int x=5;
+    int* y=&x;
+    printf("%d %lld %lld %d %d",x,&x,y,*y,*(&x));
+}
+output:
+5 6 5 140722463217232
+0 6 0 140722463217232
+0 10 10 140722463217236
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int a=1,b=2;
+    int* x=&(a+b);
+    return 0;
+}
+output:
+error because a+b gives 3 but it doesnt stored in any variable
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int a=1,b=2;
+    int c=a+b;
+    int* x=&c;
+    printf("%d",*x);
+    return 0;
+}
+output:
+3
+*/
+
+//Intro to arthematic pointer
+
+/*
+#include<stdio.h>
+int main()
+{
+    int x;
+    int* a=&x;
+    char y;
+    char* b=&y;
+    long long z;
+    long long* c=&z;
+    printf("%lld %lld %lld\n",a,b,c);
+    printf("%lld %lld %lld\n",a+1,b+1,c+1);
+    return 0;
+}
+output:
+140722530247324 140722530247323 140722530247328
+140722530247328 140722530247324 140722530247336
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int x;
+    int* y=&x;
+    printf("%lld %lld %lld\n",y,y-2,y+2);
+}
+o/p:
+140725943603604 140725943603596 140725943603612
+*/
+
+
+//operations of two pointers
+
+/*
+int main()
+{
+    int x,y,z;
+    int* p1=&x;
+    int* p2=&z;
+    printf("%d \n",p1-p2);
+    printf("%lld %lld",p1,p2);
+    return 0;
+}
+output:
+
+-1 
+140721078536768 140721078536772
+*/
+
+/*
+#include<stdio.h>
+int main()
+{
+    int x,y,z;
+    int* a=&x;
+    int* b=&z;
+    if(b>a)
+    {
+        printf("Hi\n");
+    }
+    return 0;
+}
+o/p:
+Hi
+
+*/
+
+//multiplication and divison is not allowed in pointer 
+
+//- by using this we get how elements present between two pointer variables
+
+
+//Base address of array
+
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[3]={7,8,9};
+    printf("%lld %lld %lld",&arr[0],&arr[1],&arr[2]);
+}
+o/p:
+140734845097772 140734845097776 140734845097780
+*/
+
+//why elements are contigous in array
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[2]={1,2};
+    printf("%lld %lld",&arr,&arr[0]);
+}
+output
+140720346687280 140720346687280
+    
+//here the array address is same as arr[0] base address 
+
+*/
+/*
+#include<stdio.h>
+int main()
+{
+    int arr[3]={7,9,2};
+    int* p=&arr[0];
+    printf("%d %d %d \n",*p,*(p+1),*(p+2));
+    printf("%lld %lld %lld\n",p,p+1,p+2);
+    printf("%d %d %d\n",*arr,*(arr+1),*(arr+2));
+    return 0;
+}
+o/p:
+7 9 2 
+140726917334412 140726917334416 140726917334420
+7 9 2
+*/
+/*
+#include<stdio.h>
+int main()
+{
+    int a[3]={1,2,3};
+    for(int i=0;i<3;i++)
+    {
+        printf("%d ",*(a+i));
+    }
+}
+o/p:
+1 2 3 
+*/
+
+//pointer to pointer
+/*
+#include<stdio.h>
+int main()
+{
+    int x=5;
+    int* y=&x;
+    //int* q=&y; wrong here int* contains only int
+    int** q=&y;
+    int*** r=&q;
+    printf("%lld %lld %lld %lld",&x,y,q,r);
+}
+o/p:
+140720706154532 140720706154532 140720706154536 140720706154544
+    */
+
+/*
+#include<stdio.h>
+int main()
+{
+    int a=5;
+    int* b=&a;
+    int** c=&b;
+    printf("%d %d %lld %lld\n",a,*b,b,*c);
+    printf("%d %d %d",a,*b,**c);
+}
+o/p:
+5 5 140736968291092 140736968291092
+5 5 5
+*/
+
+//Array of pointers
+/*
+
+#include<stdio.h>
+int main()
+{
+    int* pointer[3];
+    int x=1,y=2,z=3;
+    pointer[0]=&x;
+    pointer[1]=&y;
+    pointer[2]=&z;
+    printf("%lld %lld\n",*(pointer+1),&y);
+    printf("%d",**(pointer+1));
+}
+
+
+o/p:
+140721475977444 140721475977444
+2
+*/
+
+
+/*
+#include<stdio.h>
+int main()
+{
+    int* pointer[3];
+    int x=1,y=2,z=3;
+    pointer[0]=&x;
+    pointer[1]=&y;
+    pointer[2]=&z;
+    for(int i=0;i<3;i++)
+    {
+    printf("%lld ",*(pointer+i));
+    }
+    printf("\n");
+    for(int i=0;i<3;i++)
+    {
+    printf("%lld ",pointer[i]);
+    }
+    
+}
+output:
+140724839979020 140724839979024 140724839979028 
+140724839979020 140724839979024 140724839979028 
+
+*/
+/*
+#include<stdio.h>
+int main()
+{
+    int* pointer[3];
+    int x=1,y=2,z=3;
+    pointer[0]=&x;
+    pointer[1]=&y;
+    pointer[2]=&z;
+    for(int i=0;i<3;i++)
+    {
+    printf("%lld ",**(pointer+i));
+    }
+    printf("\n");
+    for(int i=0;i<3;i++)
+    {
+    printf("%lld ",*pointer[i]);
+    }
+    
+}
+o/p:
+1 2 3 
+1 2 3 
+*/
+
+//using pointer like array
+/*
+#include<stdio.h>
+int main()
+{
+    int a[3]={1,2,3};
+    int* p=&a;//{1,2,3};
+    printf("%lld %lld %lld\n",p,p+1,p+2);
+    printf("%d %d %d\n",a[0],a[1],a[2]);
+    printf("%d %d %d\n",*p,*(p+1),*(p+2));
+    printf("%d %d %d\n",p[0],p[1],p[2]);
+    
+}
+o/p:
+140733293201708 140733293201712 140733293201716
+1 2 3
+1 2 3
+1 2 3
+    
+//a[i]==>*(a+i)==>p[i]==>*(p+i)
+*/
+/*
+
+#include<stdio.h>
+int main()
+{
+    int* p[3];
+    int x[3]={1,2,3};
+    int y[3]={4,5,6};
+    int z[3]={7,8,9};
+    printf("%lld %d %lld \n",x,x[0],&x[0]);
+    p[0]=x;
+    p[1]=y;
+    p[2]=z;
+    printf("%lld \n",*p);
+    printf("%lld \n",*(*(p+0)+2));
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            printf("%d",p[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+*/
